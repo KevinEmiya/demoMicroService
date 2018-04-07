@@ -1,0 +1,13 @@
+server:
+  port: 2333
+logging:
+  config: classpath:log4j2.xml
+spring:
+  datasource:
+    url: jdbc:log4jdbc:mysql://localhost:3306/ky_sb_test?useUnicode=true&characterEncoding=UTF8
+    username: root
+    password: root
+    driver-class-name: net.sf.log4jdbc.DriverSpy
+#    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
