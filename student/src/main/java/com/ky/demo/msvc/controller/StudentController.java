@@ -2,6 +2,7 @@ package com.ky.demo.msvc.controller;
 
 import com.ky.demo.msvc.model.Student;
 import com.ky.demo.msvc.service.StudentService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/student")
+@Api("学生接口")
 public class StudentController {
 
     @Resource
@@ -39,6 +41,13 @@ public class StudentController {
     @ResponseBody
     List<Student> findStudentsByName(@PathVariable String name) {
         return service.findByName(name);
+    }
+
+    @ApiOperation(value = "查询全部学生信息")
+    @GetMapping("/all")
+    @ResponseBody
+    List<Student> queryAllStudent() {
+        return service.findAll();
     }
 
 }

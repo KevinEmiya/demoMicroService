@@ -20,7 +20,7 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.ky.demo.springboot.simpapp"))
+                .apis(RequestHandlerSelectors.basePackage("com.ky.demo.msvc"))
                 .paths(PathSelectors.any())
                 .build();
     }
