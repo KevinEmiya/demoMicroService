@@ -1,0 +1,12 @@
+server:
+  port: 11001
+spring:
+  cloud:
+    stream:
+      bindings:
+        event_rabbit_in:
+          destination: test_exch
+          group: test_group2
+        event_rabbit_out:
+          destination: test_exch
+          group: test_group

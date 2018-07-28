@@ -11,14 +11,36 @@ spring:
     default-property-inclusion: non_null
   cloud:
     stream:
-      kafka:
-        binder:
-          brokers: 127.0.0.1:9092
-          auto-add-partitions: true
-          auto-create-topics: true
-          min-partition-count: 1
-        bindings:
-          currentWeather:
-            destination: currentWeather
-            content-type: text/plain
+      bindings:
+        currentWeather:
+          binder: kafka
+          destination: currentWeather
+          content-type: text/plain
+        event_rabbit_in:
+          binder: rabbit
+          destination: test_exch
+          group: test_group
+      binders:
+        kafka:
+          type: kafka
+          environment:
+            spring:
+              cloud:
+                stream:
+                  kafka:
+                    binder:
+                      brokers: 127.0.0.1:9092
+                      zkNodes: 127.0.0.1:2181
+                      auto-add-partitions: true
+                      auto-create-topics: true
+                      min-partition-count: 1
+        rabbit:
+          type: rabbit
+          environment:
+            spring:
+              cloud:
+                stream:
+                  rabbitmq:
+                    addresses: localhost:5672
+      default-binder: rabbit
 
