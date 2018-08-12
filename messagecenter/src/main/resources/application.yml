@@ -1,0 +1,9 @@
+server:
+  port: 10002
+logging:
+  config: classpath:log4j2.xml
+spring:
+  redis:
+    database: 5
+    host: localhost
+    port: 6379

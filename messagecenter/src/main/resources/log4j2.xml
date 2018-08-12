@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="warn" name="MyApp" packages="">
+	<Appenders>
+		<RollingFile name="error" fileName="${sys:user.dir}/logs/error.log"
+			filePattern="${sys:user.dir}/logs/danmaku/error-%d{MM-dd-yyyy}-%i.log.zip">
+			<PatternLayout
+				pattern="%-d{yyyy-MM-dd HH:mm:ss.SSS} %level{length=1} [%c{3}:%L] - [%t] %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="20 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<RollingFile name="info" fileName="${sys:user.dir}/logs/info.log"
+			filePattern="${sys:user.dir}/logs/danmaku/info-%d{MM-dd-yyyy}-%i.log.zip">
+			<PatternLayout
+				pattern="%-d{yyyy-MM-dd HH:mm:ss.SSS} %level{length=1} [%c{3}:%L] - [%t] %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="20 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<RollingFile name="debug" fileName="${sys:user.dir}/logs/debug.log"
+			filePattern="${sys:user.dir}/logs/danmaku/debug-%d{MM-dd-yyyy}-%i.log.zip">
+			<PatternLayout
+				pattern="%-d{yyyy-MM-dd HH:mm:ss.SSS} %level{length=1} [%c{3}:%L] - [%t] %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="20 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+		<Console name="STDOUT" target="SYSTEM_OUT" ignoreExceptions="false">
+			<PatternLayout
+				pattern="%-d{yyyy-MM-dd HH:mm:ss.SSS} %level{length=1} [%c{3}:%L] - [%t] %m%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="trace">
+			<AppenderRef ref="debug" level="debug" />
+			<AppenderRef ref="STDOUT" level="info" />
+			<AppenderRef ref="error" level="error" />
+		</Root>>
+	</Loggers>
+</Configuration>
+
