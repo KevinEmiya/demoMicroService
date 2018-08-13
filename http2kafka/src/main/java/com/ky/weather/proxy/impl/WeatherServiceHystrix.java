@@ -1,7 +1,7 @@
-package com.ke.demo.http2kafka.proxy.impl;
+package com.ky.weather.proxy.impl;
 
-import com.ke.demo.http2kafka.model.CurrentWeatherInfo;
-import com.ke.demo.http2kafka.proxy.WeatherService;
+import com.ky.weather.model.CurrentWeatherInfo;
+import com.ky.weather.proxy.WeatherService;
 
 public class WeatherServiceHystrix implements WeatherService {
 

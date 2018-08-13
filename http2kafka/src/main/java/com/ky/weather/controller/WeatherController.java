@@ -1,8 +1,8 @@
-package com.ke.demo.http2kafka.controller;
+package com.ky.weather.controller;
 
-import com.ke.demo.http2kafka.io.CurrentWeatherEvent;
-import com.ke.demo.http2kafka.model.CurrentWeatherInfo;
-import com.ke.demo.http2kafka.proxy.WeatherService;
+import com.ky.weather.io.CurrentWeatherEvent;
+import com.ky.weather.model.CurrentWeatherInfo;
+import com.ky.weather.proxy.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.stream.annotation.EnableBinding;

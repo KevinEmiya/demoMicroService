@@ -19,7 +19,7 @@ public class DanmakuController {
         return danmakuService.getLatestDanmaku(count);
     }
 
-    @PutMapping("")
+    @PostMapping("")
     public ResultBean add(@RequestBody String danmaku) {
         return danmakuService.addDanmaku(danmaku);
     }

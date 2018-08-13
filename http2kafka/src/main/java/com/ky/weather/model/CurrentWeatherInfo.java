@@ -1,4 +1,4 @@
-package com.ke.demo.http2kafka.model;
+package com.ky.weather.model;
 
 import lombok.Data;
 

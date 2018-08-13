@@ -1,5 +1,9 @@
 server:
   port: 10002
+  ssl:
+    key-store: classpath:danmaku.p12
+    key-store-password: kevin123
+    key-store-type: PKCS12
 logging:
   config: classpath:log4j2.xml
 spring:

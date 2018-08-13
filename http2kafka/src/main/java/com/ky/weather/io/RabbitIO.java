@@ -1,4 +1,4 @@
-package com.ke.demo.http2kafka.io;
+package com.ky.weather.io;
 
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.messaging.SubscribableChannel;

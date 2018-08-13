@@ -1,9 +1,8 @@
-package com.ke.demo.http2kafka.schedule;
+package com.ky.weather.schedule;
 
-import com.ke.demo.http2kafka.proxy.WeatherService;
+import com.ky.weather.proxy.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
