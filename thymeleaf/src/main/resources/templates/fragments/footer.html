@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf simple page</title>
+</head>
+<body>
+<div th:fragment="footer">
+    Copyright Kevin <span th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}"></span>
+</div>
+</body>
+</html>
