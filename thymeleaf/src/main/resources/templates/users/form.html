@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="www.ultraq.net.nz/thymeleaf/layout">
-<head>
-    <meta charset="UTF-8">
-    <title>Thymeleaf simple page</title>
+<head th:replace="~{fragments/header :: header}">
 </head>
 <body>
-    <div th:replace="~{fragments/header :: header}"></div>
+<div class="container blog-content-container">
     <h3 th:text="${userModel.title}">kevin</h3>
     <form action="/users" th:action="@{/users}" method="POST" th:object="${userModel.user}">
-        <input type="hidden" name="id" th:value="*{id}"> 名称：
+        <input class="form-control" type="hidden" name="id" th:value="*{id}"> 名称：
         <br>
-        <input type="text" name="name" th:value="*{name}">
+        <br>
+        <input class="form-control" type="text" name="name" th:value="*{name}">
         <br> 邮箱：
         <br>
-        <input type="text" name="email" th:value="*{email}">
-        <input type="submit" value="提交">
+        <input class="form-control" type="text" name="email" th:value="*{email}">
+        <br>
+        <input class="btn btn-default" type="submit" value="提交">
     </form>
-    <div th:replace="~{fragments/footer :: footer}"></div>
+</div>
+<div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>
