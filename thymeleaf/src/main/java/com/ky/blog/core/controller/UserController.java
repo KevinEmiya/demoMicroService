@@ -58,7 +58,7 @@ public class UserController {
         return ResponseEntity.ok().body(Response.ok("创建成功！", user));
     }
 
-    @GetMapping("delete/{id}")
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Response> delete(@PathVariable("id") Long id) {
         try {
             userService.removeUser(id);

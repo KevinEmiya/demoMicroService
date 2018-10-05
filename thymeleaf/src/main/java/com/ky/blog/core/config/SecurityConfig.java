@@ -16,6 +16,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/css/**", "/js/**", "/fonts/**", "/index").permitAll()
         .antMatchers("/users/**").hasRole("ADMIN")
         .and().formLogin().loginPage("/login").failureUrl("/login-error");
+
+        // TODO: 禁用不是很安全，有没有更好的方法？
+        http.csrf().disable();
     }
 
     @Autowired
