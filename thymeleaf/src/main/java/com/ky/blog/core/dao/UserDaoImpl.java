@@ -1,7 +1,6 @@
-package com.ky.thymeleaf.dao;
+package com.ky.blog.core.dao;
 
-import com.ky.thymeleaf.model.User;
-import org.springframework.stereotype.Repository;
+import com.ky.blog.core.entity.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Repository
+//@Repository
 public class UserDaoImpl implements UserDao {
 
     private static AtomicLong m_idGenerator = new AtomicLong();

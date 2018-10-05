@@ -1,11 +1,18 @@
-package com.ky.thymeleaf.controller;
+package com.ky.blog.core.controller;
 
+import com.ky.blog.core.entity.User;
+import com.ky.blog.core.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MainController {
+
+    @Autowired
+    UserService userService;
 
     @GetMapping("/")
     public String root() {
@@ -27,5 +34,11 @@ public class MainController {
         model.addAttribute("loginError", true);
         model.addAttribute("errorMsg","登陆失败，用户名或密码错误！");
         return "login";
+    }
+
+    @PostMapping("/register")
+    public String register(User user) {
+        userService.registerUser(user);
+        return "redirect:/login";
     }
 }

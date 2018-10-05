@@ -5,3 +5,8 @@ spring:
     encoding: UTF-8
     cache: false
     mode: HTML5
+  datasource:
+    url: jdbc:mysql://localhost:3306/ky_blog
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
