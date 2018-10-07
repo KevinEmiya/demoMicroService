@@ -2,6 +2,7 @@ package com.ky.blog.core.controller;
 
 import com.ky.blog.core.entity.User;
 import com.ky.blog.core.model.Response;
+import com.ky.blog.core.service.AuthorityService;
 import com.ky.blog.core.service.UserService;
 import com.ky.blog.core.utils.ConstraintViolationExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    AuthorityService authorityService;
 
     @GetMapping
     public ModelAndView list(@RequestParam(value = "async", required = false) boolean async,
@@ -49,7 +53,8 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<Response> saveOrUpdateUser(User user) {
+    public ResponseEntity<Response> saveOrUpdateUser(User user, Long authorityId) {
+        user.addAuthority(authorityService.getAuthorityById(authorityId));
         try {
             userService.saveOrUpdateUser(user);
         } catch (ConstraintViolationException e) {

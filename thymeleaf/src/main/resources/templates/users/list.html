@@ -19,9 +19,11 @@
             <thead class="thead-inverse">
             <tr>
                 <th data-field="id">ID</th>
-                <th data-field="age">年龄</th>
+                <th data-field="username">账号</th>
                 <th data-field="name">姓名</th>
-                <th data-field="operation">操作</th>
+                <th data-field="email">邮箱</th>
+                <th data-field="authorities">角色</th>
+                <th data-field="operation"></th>
             </tr>
             </thead>
             <tbody>
@@ -31,6 +33,7 @@
                 <td th:text="${user.username}">username</td>
                 <td th:text="${user.name}">name</td>
                 <td th:text="${user.email}">abc@def.com</td>
+                <td th:text="${user.authorities}">admin</td>
                 <td>
                     <div>
                         <a class="blog-edit-user" data-toggle="modal" data-target="#flipFlop"

@@ -1,6 +1,7 @@
 package com.ky.blog.core.controller;
 
 import com.ky.blog.core.entity.User;
+import com.ky.blog.core.service.AuthorityService;
 import com.ky.blog.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,11 @@ public class MainController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    AuthorityService authorityService;
+
+    private static final Long ROLE_USER_AUTH_ID = 2L;
 
     @GetMapping("/")
     public String root() {
@@ -36,8 +42,14 @@ public class MainController {
         return "login";
     }
 
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
     @PostMapping("/register")
     public String register(User user) {
+        user.addAuthority(authorityService.getAuthorityById(ROLE_USER_AUTH_ID));
         userService.registerUser(user);
         return "redirect:/login";
     }
