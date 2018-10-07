@@ -28,6 +28,17 @@ public class UserController {
     @Autowired
     AuthorityService authorityService;
 
+    @GetMapping("/test")
+    public String createTestUser(){
+        User user = new User();
+        user.setName("王大力");
+        user.setPassword("$2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi");
+        user.setEmail("wangdali@123.com");
+        user.setUsername("wangdali");
+        user.addAuthority(authorityService.getAuthorityById(2L));
+        return userService.saveOrUpdateUser(user).toString();
+    }
+
     @GetMapping
     public ModelAndView list(@RequestParam(value = "async", required = false) boolean async,
                              @RequestParam(value = "pageIndex", required = false, defaultValue = "0") int pageIndex,

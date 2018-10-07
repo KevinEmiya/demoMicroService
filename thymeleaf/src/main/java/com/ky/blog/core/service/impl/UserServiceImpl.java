@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
@@ -20,15 +21,20 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Autowired
     UserDao userDao;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     @Transactional
     @Override
     public User saveOrUpdateUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userDao.save(user);
     }
 
     @Transactional
     @Override
     public User registerUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userDao.save(user);
     }
 
