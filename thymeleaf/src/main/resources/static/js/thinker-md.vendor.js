@@ -2103,7 +2103,7 @@ hljs.registerLanguage('cpp', function (hljs) {
     var CPP_KEYWORDS = {
         keyword: 'false int float while private char catch export virtual operator sizeof ' +
         'dynamic_cast|10 typedef const_cast|10 const struct for static_cast|10 union namespace ' +
-        'unsigned long volatile static protected bool template mutable if public friend ' +
+        'unsigned long volatile static protected bool templates mutable if public friend ' +
         'do goto auto void enum else break extern using true class asm case typeid ' +
         'short reinterpret_cast|10 default double register explicit signed typename try this ' +
         'switch continue wchar_t inline delete alignof char16_t char32_t constexpr decltype ' +
@@ -2431,7 +2431,7 @@ hljs.registerLanguage('d',
             'finally for foreach foreach_reverse|10 goto if immutable import in inout int ' +
             'interface invariant is lazy macro mixin module new nothrow out override package ' +
             'pragma private protected public pure ref return scope shared static struct ' +
-            'super switch synchronized template this throw try typedef typeid typeof union ' +
+            'super switch synchronized templates this throw try typedef typeid typeof union ' +
             'unittest version void volatile while with __FILE__ __LINE__ __gshared|10 ' +
             '__thread __traits __DATE__ __EOF__ __TIME__ __TIMESTAMP__ __VENDOR__ __VERSION__',
             built_in: 'bool cdouble cent cfloat char creal dchar delegate double dstring float function ' +
@@ -4279,7 +4279,7 @@ hljs.registerLanguage('haml', // TODO support filter tags like :javascript, supp
         };
     });
 hljs.registerLanguage('handlebars', function (hljs) {
-    var EXPRESSION_KEYWORDS = 'each in with if else unless bindattr action collection debugger log outlet template unbound view yield';
+    var EXPRESSION_KEYWORDS = 'each in with if else unless bindattr action collection debugger log outlet templates unbound view yield';
     return {
         aliases: ['hbs', 'html.hbs', 'html.handlebars'],
         case_insensitive: true,
@@ -6534,7 +6534,7 @@ hljs.registerLanguage('nimrod', function (hljs) {
     return {
         aliases: ['nim'],
         keywords: {
-            keyword: 'addr and as asm bind block break|0 case|0 cast const|0 continue|0 converter discard distinct|10 div do elif else|0 end|0 enum|0 except export finally for from generic if|0 import|0 in include|0 interface is isnot|10 iterator|10 let|0 macro method|10 mixin mod nil not notin|10 object|0 of or out proc|10 ptr raise ref|10 return shl shr static template|10 try|0 tuple type|0 using|0 var|0 when while|0 with without xor yield',
+            keyword: 'addr and as asm bind block break|0 case|0 cast const|0 continue|0 converter discard distinct|10 div do elif else|0 end|0 enum|0 except export finally for from generic if|0 import|0 in include|0 interface is isnot|10 iterator|10 let|0 macro method|10 mixin mod nil not notin|10 object|0 of or out proc|10 ptr raise ref|10 return shl shr static templates|10 try|0 tuple type|0 using|0 var|0 when while|0 with without xor yield',
             literal: 'shared guarded stdin stdout stderr result|10 true false'
         },
         contains: [{

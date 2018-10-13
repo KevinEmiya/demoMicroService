@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+<div>
+    <div th:if="${message}">
+        <h2 th:text="${message}"/>
+    </div>
+
+    <div>
+        <form method="POST" enctype="multipart/form-data" action="/">
+            <table>
+                <tr>
+                    <td>上传文件:</td>
+                    <td>
+                        <input type="file" name="file"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="上传"/>
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+    </div>
+
+    <div>
+        <table border="1">
+            <thead>
+            <tr>
+                <td>Name</td>
+                <td>ID</td>
+                <td>contentType</td>
+                <td>size</td>
+                <td>uploadDate</td>
+                <td>md5</td>
+                <td>operation</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${files.size()} eq 0">
+                <td colspan="3">没有文件信息！！</td>
+            </tr>
+            <tr th:each="file : ${files}">
+                <td><a th:href="'files/'+${file.id}" th:text="${file.name}"/></td>
+                <td th:text="${file.id}"></td>
+                <td th:text="${file.contentType}"></td>
+                <td th:text="${file.size}"></td>
+                <td th:text="${file.uploadDate}"></td>
+                <td th:text="${file.md5}"></td>
+                <td>
+                    <form method="POST" action="op/del/1" th:action="'op/del/' + ${file.id}">
+                        <input type="submit" value="删除">
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:replace="~{fragments/footer :: footer}">...</div>
+</body>
+</html>
