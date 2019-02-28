@@ -28,7 +28,7 @@ public class PersonInfoController {
     }
 
     @GetMapping("/judgement/oldGuy")
-    public ResultBean<PersonInfo> getPersonInfo(@RequestParam int age) {
+    public ResultBean<Boolean> getPersonInfo(@RequestParam int age) {
         return ResultBean.genResult(personInfoService.isOld(age));
     }
 
